@@ -6,7 +6,7 @@ in Herdr's own file panel. It updates as the agent writes.
 
 <picture>
   <source media="(prefers-color-scheme: light)" srcset="preview-light.png">
-  <img alt="A terminal showing a Markdown plan as raw text, and beside it the files-md panel showing the same plan formatted: a Mermaid flowchart, a table and a task list" src="preview.png">
+  <img alt="The files-md pane showing a plan formatted, with a Mermaid flowchart, a table and a task list, beside a terminal showing the same file as raw Markdown" src="preview.png">
 </picture>
 
 [![gate](https://github.com/daneb/herdr-markdown/actions/workflows/gate.yml/badge.svg)](https://github.com/daneb/herdr-markdown/actions/workflows/gate.yml)

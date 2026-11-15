@@ -5,6 +5,9 @@ tasks and images, in a pane beside the terminal. Read-only, no network.
 
 ![Live Markdown + Mermaid](preview.png)
 
+Left: a plan in the pane. Right: the same file as raw Markdown in a terminal.
+`preview-light.png` is the same scene in a light theme.
+
 The mod's folder is `files-md`: Herdr's Files panel, with the tree you know,
 links that open inside the folder, and your theme's colours in every diagram.
 
