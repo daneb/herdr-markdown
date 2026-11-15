@@ -1,0 +1,11 @@
+herdr-markdown (the files-md mod for the Herdr app)
+Copyright 2026 the herdr-markdown authors
+
+This product includes software from Herdr (herdrdev/herdr-app), licensed under
+the Apache License 2.0: the shipped `files` mod, app 0.1.15. mods/files-md/main.js
+is a modified copy of it (changed to show Markdown formatted, with Mermaid
+diagrams and images, in a mod pane); upstream/files-0.1.15/ holds the original.
+
+Third-party code bundled or adapted in mods/files-md is listed, with its
+licences, in mods/files-md/THIRD-PARTY-NOTICES.md. The patched elkjs source
+(EPL-2.0) is in vendor/elkjs-0.11.1-patched/.

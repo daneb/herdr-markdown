@@ -1,0 +1,20 @@
+{
+  "name": "herdr-markdown",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "files-md: the Herdr app's Files panel with Markdown formatted, Mermaid drawn and images shown",
+  "license": "Apache-2.0",
+  "scripts": {
+    "build:mermaid": "node scripts/build-mermaid.mjs",
+    "test": "node --test tests/"
+  },
+  "devDependencies": {
+    "beautiful-mermaid": "1.1.3",
+    "elkjs": "0.11.1",
+    "esbuild": "0.28.2"
+  },
+  "overrides": {
+    "elkjs": "0.11.1"
+  }
+}
