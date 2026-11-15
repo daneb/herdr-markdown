@@ -1,11 +1,12 @@
-# Files with Markdown (files-md)
+# Live Markdown + Mermaid
 
-Herdr's Files panel as a pane beside your terminal, with Markdown shown
-formatted: headings, tables, task lists, Mermaid diagrams drawn in your theme's
-colours, and local images in place. Links work inside the folder. The open file
-updates as an agent writes it. Read-only, no network.
+Read your agent's plans as they're written: Mermaid diagrams drawn, tables,
+tasks and images, in a pane beside the terminal. Read-only, no network.
 
-![Files with Markdown](preview.png)
+![Live Markdown + Mermaid](preview.png)
+
+The mod's folder is `files-md`: Herdr's Files panel, with the tree you know,
+links that open inside the folder, and your theme's colours in every diagram.
 
 The raw Markdown in a terminal on the left; the same file in files-md on the
 right. `preview-light.png` is the same scene in a light theme.
