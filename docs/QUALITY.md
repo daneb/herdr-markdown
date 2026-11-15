@@ -127,6 +127,8 @@ review is on us.
 - [x] Editor state is created in handlers or `init`, and released.
 - [x] No timer used for animation; the only timer is the inherited 10-second refresh.
 - [x] All colours from `theme()`.
+- [x] The only action the mod dispatches by hand is `shell_root::Copy` (copy on
+      Herdr 0.1.16 and later; see the renderer matrix).
 - [x] The only key binding the mod installs is `cmd-c` → `input::Copy` in the
       `TextView` context. `bind_keys` is app-wide and outlives the mod, so
       nothing else may be bound that way.
@@ -152,7 +154,7 @@ either changed.
 
 | Date | App | Shipped `files` mod | Our APIs | `check` | Shots | Copy (`cmd-c`) |
 |---|---|---|---|---|---|---|
-| 2026-11-15 | 0.1.16 | identical to 0.1.15 | all present | pass | dark set retaken, unchanged | works (checked by Dane, despite the new Edit menu) |
+| 2026-11-15 | 0.1.16 | identical to 0.1.15 | all present | pass | dark set retaken, unchanged | broke: the text view now answers `shell_root::Copy`, not `input::Copy`. Fixed by passing an unhandled `input::Copy` on; works on 0.1.16 (Dane) |
 
 ## Known limits of this process
 

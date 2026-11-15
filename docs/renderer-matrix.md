@@ -29,6 +29,12 @@ and nothing binds the view's native copy action. The mod binds it itself in
 "TextView" }])`. Confirmed working by Dane. `bind_keys` accepts any action
 name without checking it, so only a real copy proves the binding.
 
+On Herdr 0.1.16 copy broke again: a diagnostic showed `input::Copy` reaching
+the panel unhandled. 0.1.16's text view answers a new `shell_root::Copy`
+(what Edit › Copy dispatches). The panel now passes an unhandled
+`input::Copy` on as `shell_root::Copy`, so one build copies on 0.1.15 and
+0.1.16. Confirmed by Dane on 0.1.16.
+
 ## Mermaid: beautiful-mermaid 1.1.3 + elkjs 0.11.1, bundled (Q7)
 
 Bundle: 1,558,824 bytes, built by `scripts/build-mermaid.mjs`. It contains no

@@ -47,7 +47,8 @@ export default class Files extends View {
     // pane.split {mod: "files-md", props: {file}}: a file to open first, inside the folder (SPEC R0).
     const file = props()?.file;
     this.opening = typeof file === "string" ? file : null;
-    // TextView selects text, but Herdr binds no copy key inside it; its native action is input::Copy.
+    // TextView selects text, but Herdr binds no copy key inside it. On 0.1.15 the text view answers
+    // input::Copy; from 0.1.16 it answers shell_root::Copy, so render() passes an unhandled one on.
     cx.bind_keys([{ keystroke: "cmd-c", action: "input::Copy", context: "TextView" }]);
     this.pictures = new Pictures({ fs, cache: createCache({ fs, dir: `${appHome()}/${CACHE}` }), dir: CACHE });
     this.entries = new Map(); this.folders = new Set(); this.pending = new Set(); this.marks = {};
@@ -281,6 +282,8 @@ export default class Files extends View {
     if (this.parts && this.pictures.stale(t)) this.pictures.draw(this.parts, t, cx);
     return v_flex().id("files").size_full().min_h(0).rounded(10).overflow_hidden().bg(t.background).border_1().border_color(t.border).text_color(t.foreground).text_size(13)
       .on_size_change((size, cx) => { if (Math.abs(size.width - (this.width ?? 0)) >= 1) { this.width = size.width; cx.notify(); } })
+      // `window` here is herdr's; the global one is GPUI's, which dispatches actions.
+      .on_action("input::Copy", () => globalThis.window.dispatch_action("shell_root::Copy"))
       .child(h_flex().h(42).flex_none().px(14).gap(8).items_center().border_b(1).border_color(t.border)
         .when(Boolean(this.file), el => el.child(div().id("files-back").w(20).cursor_pointer().text_color(t.muted).on_click((_e, cx) => this.back(cx)).child("←")))
         .child(div().font_semibold().child("Files"))

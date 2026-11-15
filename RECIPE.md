@@ -134,7 +134,11 @@ text in `foreground`.
   happens, no error). Open it as a pane instead.
 - **`cmd-c` does nothing** in a selectable `TextView` unless bound:
   `cx.bind_keys([{ keystroke: "cmd-c", action: "input::Copy", context: "TextView" }])`.
-  `bind_keys` accepts any action name without checking it.
+  `bind_keys` accepts any action name without checking it. From Herdr 0.1.16
+  the text view answers `shell_root::Copy` instead, so `input::Copy` arrives
+  unhandled: catch it on the panel's root with
+  `.on_action("input::Copy", () => globalThis.window.dispatch_action("shell_root::Copy"))`
+  (`globalThis.window` is GPUI's; the `window` imported from `herdr` is not).
 - **`TextView.markdown` drops images** entirely, alt text included; draw them
   yourself.
 - **`image()` reads only the app's home**: copy images and diagrams into
