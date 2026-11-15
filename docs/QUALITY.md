@@ -23,6 +23,18 @@ A change is done when it passes all four layers below. "It loads" is not done.
 Rule: a bug found by hand gets a test before it gets a fix, where the fault is
 in `lib.js`.
 
+## 1b. Automated: the gate (CI)
+
+`npm run gate` (scripts/gate.mjs) checks the automatable boxes of section 4:
+programs run, no network or eval, who writes files, who imports `herdr`, the one
+dynamic import, the one timer and key binding, the bundle's contents and
+notices, exact version pins, and a byte-for-byte rebuild of the bundle and the
+patched elkjs source. `.github/workflows/gate.yml` runs `npm audit`, the tests
+and the gate on every push and pull request (Node 24, Linux; actions pinned to
+commits; install scripts off). A red run blocks a release. A new check that a
+review finds automatable goes into the gate, with a planted violation to prove
+it fails.
+
 ## 2. Automated: the app's own check
 
 `herdr-app check ~/.config/herdr-app/mods/files-md` after every change. It
@@ -63,7 +75,11 @@ Run against `fixtures/` in the app. Record pass or fail with the app version.
 | Switch layout and back; resize the panel to its minimum | robustness |
 | Focus a pane in a folder with no git repo | robustness |
 
-Each release keeps one `herdr-app shot` screenshot per theme in `docs/shots/`.
+Each release keeps screenshots per theme in `docs/shots/<theme>/`, taken with
+`scripts/shots.sh <theme>` on the Mac (CI cannot run Herdr). The script opens
+each fixture in a zoomed `files-md` pane through `props.file`, so no clicks are
+needed; Herdr must be the front window while it runs. Look through them before
+tagging: a shot that shows the tree instead of its file is a failure.
 
 ## 4. Review
 

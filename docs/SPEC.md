@@ -32,7 +32,7 @@ writing.
 | ID | Requirement |
 |---|---|
 | R1 | Everything the shipped Files panel does still works: lazy tree of the focused pane's folder, git status marks, source preview for non-Markdown files, the 500-per-folder and 5,000-total limits. Focusing the panel itself (or another mod pane) keeps the folder of the last focused terminal. |
-| R0 | The panel is a mod pane: it opens beside the focused terminal (`pane.split {direction: "right", mod: "files-md"}`) in any layout, shipped ones included, and closes, zooms and resizes like any pane. The mod ships a `keys.json` with one suggested key to open it, merged only with the person's consent. |
+| R0 | The panel is a mod pane: it opens beside the focused terminal (`pane.split {direction: "right", mod: "files-md"}`) in any layout, shipped ones included, and closes, zooms and resizes like any pane. `props: {file}` opens that file first (relative to the terminal's folder, or absolute; refused outside it). The mod ships a `keys.json` with one suggested key to open it, merged only with the person's consent. |
 | R2 | A file ending `.md` or `.markdown` opens formatted by default. |
 | R3 | A control in the panel header switches the open file between Formatted and Source. The choice is remembered for the session. |
 | R4 | Text in the formatted view can be selected and copied with `cmd-c`. Diagrams and images are pictures, not text; selection need not cross them. (Herdr binds no copy key in text views; the mod binds one, scoped to them: see the renderer matrix.) |

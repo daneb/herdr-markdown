@@ -51,7 +51,9 @@ text in `foreground`.
 ## How it behaves
 
 - **Opening it**: `herdr-app do pane.split '{"direction":"right","mod":"files-md"}'`,
-  or the suggested key `cmd-shift-m` once merged into `keys.json`. It closes,
+  or the suggested key `cmd-shift-m` once merged into `keys.json`. With
+  `"props": {"file": "docs/PLAN.md"}` it opens that file first (relative to the
+  terminal's folder; a path outside it is ignored). It closes,
   zooms, resizes and moves like any pane, and works in Herdr's shipped
   layouts. Herdr keeps a mod pane alive with its tab, so its file and mode
   survive a layout switch.
@@ -163,8 +165,9 @@ text in `foreground`.
 
 ## Done when
 
-- `herdr-app check ~/.config/herdr-app/mods/files-md` passes, and `npm test`
-  passes (71 tests).
+- `herdr-app check ~/.config/herdr-app/mods/files-md` passes, and `npm run ci`
+  passes (71 tests and the 16 gate checks).
+- `scripts/shots.sh <theme>` gives ten shots, each showing its fixture.
 - `pane.split {direction: "right", mod: "files-md"}` opens it in the shipped
   `main` layout, showing the focused terminal's folder with git marks;
   clicking inside it leaves the tree where it is.
