@@ -4,7 +4,10 @@ Read your agents' Markdown the way it was meant to look, right beside the
 terminal: headings, tables, task lists, **Mermaid diagrams** and **images**,
 in Herdr's own file panel. It updates as the agent writes.
 
-![The panel showing a plan with a Mermaid diagram, a table and a task list](preview.png)
+<picture>
+  <source media="(prefers-color-scheme: light)" srcset="preview-light.png">
+  <img alt="A terminal showing a Markdown plan as raw text, and beside it the files-md panel showing the same plan formatted: a Mermaid flowchart, a table and a task list" src="preview.png">
+</picture>
 
 [![gate](https://github.com/daneb/herdr-markdown/actions/workflows/gate.yml/badge.svg)](https://github.com/daneb/herdr-markdown/actions/workflows/gate.yml)
 
@@ -27,9 +30,14 @@ in Herdr's own file panel. It updates as the agent writes.
 
 You need the [Herdr app](https://herdr.dev) 0.1.15 or later, on macOS.
 
-**The easy way:** in Herdr, ask your agent:
+**From Herdr's gallery (recommended).** Find **Files with Markdown
+(files-md)** in the [mod gallery](https://herdr.dev/gallery/?type=mods), copy
+its line, and give it to an agent running in Herdr. It's this:
 
-> Add the Herdr mod at https://github.com/daneb/herdr-markdown
+> Read ~/.config/herdr-app/AGENTS.md, then add this mod: https://github.com/daneb/herdr-markdown/tree/master
+
+The agent follows Herdr's own instructions: it tells you what the mod runs
+and reads before adding it, and asks before adding its suggested key.
 
 **By hand:**
 

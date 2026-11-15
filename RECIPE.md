@@ -7,6 +7,9 @@ updates as an agent writes it. Read-only, no network.
 
 ![Files with Markdown](preview.png)
 
+The raw Markdown in a terminal on the left; the same file in files-md on the
+right. `preview-light.png` is the same scene in a light theme.
+
 ## What you see
 
 A pane to the right of the focused terminal, framed like any pane in your
