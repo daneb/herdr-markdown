@@ -81,7 +81,7 @@ call already running, so R14's limit has to be on input size, not time.
 
 ## Spike mechanics, for the record
 
-- `herdr-app shot` returns the last frame drawn. While Herdr's window is
+- (Fixed in 0.1.16, where `shot` gives the current frame.) On 0.1.15, `herdr-app shot` returned the last frame drawn. While Herdr's window is
   covered by another app, `render()` is not called at all, so shots go stale
   and timings that depend on drawing cannot be taken. The spike's data path
   kept running (checked with a log file).

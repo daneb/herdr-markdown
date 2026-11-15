@@ -75,7 +75,8 @@ Run against `fixtures/` in the app. Record pass or fail with the app version.
 | Switch layout and back; resize the panel to its minimum | robustness |
 | Focus a pane in a folder with no git repo | robustness |
 
-Each release keeps screenshots per theme in `docs/shots/<theme>/`, taken with
+Each release keeps screenshots per theme in `docs/shots/<theme>/` (dark: 0.1.16;
+light: 0.1.15), taken with
 `scripts/shots.sh <theme>` on the Mac (CI cannot run Herdr). The script opens
 each fixture in a zoomed `files-md` pane through `props.file`, so no clicks are
 needed; Herdr must be the front window while it runs. Look through them before
@@ -146,6 +147,12 @@ review is on us.
 After any Herdr app update: run `herdr-app check`, compare the shipped
 `mods/files/main.js` against the version we cloned, and re-run layer 3 if
 either changed.
+
+### Regression record
+
+| Date | App | Shipped `files` mod | Our APIs | `check` | Shots | Copy (`cmd-c`) |
+|---|---|---|---|---|---|---|
+| 2026-11-15 | 0.1.16 | identical to 0.1.15 | all present | pass | dark set retaken, unchanged | works (checked by Dane, despite the new Edit menu) |
 
 ## Known limits of this process
 

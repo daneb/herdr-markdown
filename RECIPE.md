@@ -156,11 +156,13 @@ text in `foreground`.
   QuickJS and the window waits. Limits are on size, not time.
 - **A symlink inside the folder that points outside it is followed**, as in
   the shipped tree.
-- **Herdr redraws only while its window is in front**: `herdr-app shot` shows
-  a stale frame otherwise.
+- **On Herdr 0.1.15, `herdr-app shot` returned a stale frame** while the window
+  was covered. 0.1.16 fixed this; `scripts/shots.sh` still brings Herdr forward.
 - **Licences**: the clone is Apache-2.0; elkjs is EPL-2.0 and patched, so its
   patched source ships in the repository's `vendor/` and its notices stay in
   the bundle. See `mods/files-md/THIRD-PARTY-NOTICES.md`.
+- Tested on Herdr 0.1.15 and 0.1.16 (macOS). The shipped `files` mod is
+  identical in both.
 - Windows and Linux paths are kept from the shipped mod but untested.
 
 ## Done when
