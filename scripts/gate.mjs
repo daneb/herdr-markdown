@@ -59,6 +59,9 @@ check("bind_keys binds only cmd-c to input::Copy in TextView", (() => {
   return ok ? [] : calls.length ? calls : ["no bind_keys call found"];
 })());
 
+// Actions dispatched by hand: only the copy hand-off for Herdr 0.1.16's text view.
+check("dispatch_action only passes copy on", where(/dispatch_action\(/).filter((l) => !/dispatch_action\("shell_root::Copy"\)/.test(l)));
+
 // Opening addresses: only the link handler and the web-image note.
 check("open_url only in main.js and pictures.js", where(/open_url\(/).filter((l) => !/^(main|pictures)\.js:/.test(l)));
 
