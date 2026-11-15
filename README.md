@@ -3,6 +3,10 @@
 A mod for the Herdr desktop app: the Files panel, with Markdown shown formatted
 instead of as source. Working name of the mod: `files-md`.
 
+![files-md showing a plan with a Mermaid diagram, a table and a task list](preview.png)
+
+[![gate](https://github.com/daneb/herdr-markdown/actions/workflows/gate.yml/badge.svg)](https://github.com/daneb/herdr-markdown/actions/workflows/gate.yml)
+
 **Status:** Phases 1–3 built and checked in the app. Left before publishing: the full manual checklist in both themes, your security sign-off, a working session (Phase 1 gate), then Phase 4. Phase 0 done (see
 docs/renderer-matrix.md). Drafted 2026-11-15.
 
@@ -12,6 +16,16 @@ docs/renderer-matrix.md). Drafted 2026-11-15.
 npm test                       # pure logic
 ./scripts/install.sh           # copy into ~/.config/herdr-app/mods/files-md and check it
 herdr-app do pane.split '{"direction":"right","mod":"files-md"}'
+```
+
+Open it on a file: `herdr-app do pane.split '{"direction":"right","mod":"files-md","props":{"file":"docs/PLAN.md"}}'`
+(the path is relative to the terminal's folder, and must be inside it).
+
+Before a release:
+
+```sh
+npm run ci                     # tests and the gate, as GitHub runs them
+./scripts/shots.sh dark        # screenshots of each fixture in the app, per theme
 ```
 
 To open it with a key, merge `keys.json` (`cmd-shift-m`) into
@@ -49,7 +63,9 @@ upstream/          the shipped files mod, unchanged, for diffs  Phase 1
 keys.json          the suggested key, merged only by choice     Phase 1
 fixtures/          Markdown files and images used for testing   Phase 0
 tests/             node --test for the pure logic and renderer  Phase 1–2
-scripts/           install.sh; build-mermaid.mjs                Phase 1–2
+scripts/           install, build-mermaid, gate, shots          Phase 1–5
+.github/workflows/ gate.yml: tests, gate, audit, rebuild         Phase 5
+docs/shots/        screenshots per theme, from shots.sh         Phase 5
 package.json       pinned build inputs for the Mermaid bundle   Phase 2
 RECIPE.md          the gallery brief (draft)                    Phase 4
 preview.png        the gallery screenshot                       Phase 4

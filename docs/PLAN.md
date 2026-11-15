@@ -176,6 +176,7 @@ Exit: issue open and answered either way.
 |---|---|
 | 2026-11-15 | Build our own rather than install the community Markdown panel: good quality, wrong shape (see ADR 0001). |
 | 2026-11-15 | Prior art reviewed: no gallery mod meets the spec (SPEC.md, "Prior art"). Go for Phase 0. |
+| 2026-11-15 | Security review signed off (Dane). CI gate added: tests, audit, 16 checks, byte-for-byte rebuild, on every push; screenshots per theme with scripts/shots.sh. Repo public at github.com/daneb/herdr-markdown, no gallery topic yet. |
 | 2026-11-15 | Phase 3 built; links and live re-read checked in the app by Dane. |
 | 2026-11-15 | Phase 2 done: diagrams and images checked in the app by Dane. |
 | 2026-11-15 | Placement: mod pane beside the terminal, not a docked panel or cloned layout (Dane; ADR 0001 revised). Wide diagrams: minimum 60% scale, then sideways scroll (Dane; SPEC R13). |
