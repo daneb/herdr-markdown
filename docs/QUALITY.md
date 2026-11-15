@@ -74,42 +74,43 @@ the tree, from `classifyLink` or from the link history; every image read takes
 a path from `resolveImage`; `open_url` gets only http(s); `fs` writes and
 deletes happen only in `cache.js`, on names it makes; only `main.js` imports
 `herdr`; the bundle has no `fetch`, `XMLHttpRequest`, `eval` or dynamic
-`import()`. Awaiting Dane's sign-off.
-
+`import()`. Signed off by Dane, 2026-11-15. Bundle: 1,559,744 bytes;
+`npm audit`: 0 vulnerabilities. The two accepted limits are recorded in SPEC R8
+and R15. From now on CI checks the automatable boxes on every push (below).
 
 Mods are trusted code with unrestricted commands and network access, so this
 review is on us.
 
-- [ ] `grep -n "exec(" mods/files-md/*.js` lists only the folder listing
+- [x] `grep -n "exec(" mods/files-md/*.js` lists only the folder listing
       (`sh`, `powershell`) and the two `git` calls inherited from the shipped mod.
-- [ ] No `fetch`, no `XMLHttpRequest`, no `hc` call, in our code or the bundle.
-- [ ] `fs` and `writeTextFile` are used only by the cache, and only on paths
+- [x] No `fetch`, no `XMLHttpRequest`, no `hc` call, in our code or the bundle.
+- [x] `fs` and `writeTextFile` are used only by the cache, and only on paths
       under `~/.config/herdr-app/data/files-md/`, built from a hash, never
       from a file or link name.
-- [ ] No path from a link or image reaches `readTextFile` or `fs.readFile`
+- [x] No path from a link or image reaches `readTextFile` or `fs.readFile`
       without passing `classifyLink` or `resolveImage`.
-- [ ] Nothing is read outside the focused root.
-- [ ] No file content is logged or stored in `localStorage` or shared state.
-- [ ] The only dynamic `import()` is `./mermaid.bundle.js`.
-- [ ] The bundle rebuilds byte-for-byte from the pinned lockfile; its size is
+- [x] Nothing is read outside the focused root.
+- [x] No file content is logged or stored in `localStorage` or shared state.
+- [x] The only dynamic `import()` is `./mermaid.bundle.js`.
+- [x] The bundle rebuilds byte-for-byte from the pinned lockfile; its size is
       recorded; `npm audit` on the build inputs is clean or each finding is
       explained.
-- [ ] SVG written to the cache has no `<script>`, `<foreignObject>` or
+- [x] SVG written to the cache has no `<script>`, `<foreignObject>` or
       external `href`.
 
 ### Diff against the shipped mod
 
-- [ ] `diff` of our `main.js` against the cloned original is read line by line.
-- [ ] Every changed line is needed by a requirement in SPEC.md.
-- [ ] The cloned-from app version is recorded.
+- [x] `diff` of our `main.js` against the cloned original is read line by line.
+- [x] Every changed line is needed by a requirement in SPEC.md.
+- [x] The cloned-from app version is recorded.
 
 ### Mod rules
 
-- [ ] No `setTimeout` or `setInterval`; no stored `cx`; no top-level side effects.
-- [ ] Editor state is created in handlers or `init`, and released.
-- [ ] No timer used for animation; the only timer is the inherited 10-second refresh.
-- [ ] All colours from `theme()`.
-- [ ] The only key binding the mod installs is `cmd-c` → `input::Copy` in the
+- [x] No `setTimeout` or `setInterval`; no stored `cx`; no top-level side effects.
+- [x] Editor state is created in handlers or `init`, and released.
+- [x] No timer used for animation; the only timer is the inherited 10-second refresh.
+- [x] All colours from `theme()`.
+- [x] The only key binding the mod installs is `cmd-c` → `input::Copy` in the
       `TextView` context. `bind_keys` is app-wide and outlives the mod, so
       nothing else may be bound that way.
 
