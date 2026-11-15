@@ -14,8 +14,10 @@ files-md is Apache-2.0 (see LICENSE and NOTICE in its repository). These parts c
 
 `mermaid.bundle.js` contains elkjs 0.11.1 in object form, with four small changes made at build
 time so it runs in Herdr's mod runtime. The Source Code of elkjs, as changed, is available under the
-Eclipse Public License 2.0: it is in the `vendor/elkjs-0.11.1-patched/` folder of the files-md
-repository, next to `scripts/build-mermaid.mjs`, which makes the changes. The unchanged original is at
+Eclipse Public License 2.0, at
+https://github.com/daneb/herdr-markdown/tree/master/vendor/elkjs-0.11.1-patched
+(the `vendor/elkjs-0.11.1-patched/` folder of the files-md repository, beside
+`scripts/build-mermaid.mjs`, which makes the changes). The unchanged original is at
 https://github.com/kieler/elkjs (tag 0.11.1) and on npm as elkjs@0.11.1.
 
 ## herdr-files-plus (MIT)

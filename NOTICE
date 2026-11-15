@@ -8,4 +8,5 @@ diagrams and images, in a mod pane); upstream/files-0.1.15/ holds the original.
 
 Third-party code bundled or adapted in mods/files-md is listed, with its
 licences, in mods/files-md/THIRD-PARTY-NOTICES.md. The patched elkjs source
-(EPL-2.0) is in vendor/elkjs-0.11.1-patched/.
+(EPL-2.0) is in vendor/elkjs-0.11.1-patched/:
+https://github.com/daneb/herdr-markdown/tree/master/vendor/elkjs-0.11.1-patched
