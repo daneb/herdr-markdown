@@ -3,9 +3,9 @@
 // Markdown formatted, in a mod pane. Original: upstream/files-0.1.15/main.js.
 import { View, div, svg } from "gpui-kit";
 import { v_flex, h_flex, Editor, EditorState, TextView } from "gpui-base";
-import { spaces, panes, focused, exec, readTextFile, watchFolder, theme, settings, window, appHome } from "herdr";
+import { spaces, panes, focused, exec, readTextFile, watchFolder, theme, settings, window, appHome, props } from "herdr";
 import * as fs from "fs/promises";
-import { isMarkdown, frontMatterAsCode, chooseView, pickLocation, classifyLink } from "./lib.js";
+import { isMarkdown, frontMatterAsCode, chooseView, pickLocation, classifyLink, resolvePath, relativeTo } from "./lib.js";
 import { createCache } from "./cache.js";
 import { Pictures } from "./pictures.js";
 
@@ -44,6 +44,9 @@ async function directory(path, on) {
 export default class Files extends View {
   init(_props, cx) {
     this.saved = new Map(); this.last = null; this.mode = "formatted"; this.history = [];
+    // pane.split {mod: "files-md", props: {file}}: a file to open first, inside the folder (SPEC R0).
+    const file = props()?.file;
+    this.opening = typeof file === "string" ? file : null;
     // TextView selects text, but Herdr binds no copy key inside it; its native action is input::Copy.
     cx.bind_keys([{ keystroke: "cmd-c", action: "input::Copy", context: "TextView" }]);
     this.pictures = new Pictures({ fs, cache: createCache({ fs, dir: `${appHome()}/${CACHE}` }), dir: CACHE });
@@ -91,6 +94,11 @@ export default class Files extends View {
       this.pending = new Set(); this.marks = {}; this.show(null); this.watched = null; this.error = null; this.limited = false;
       this.loading = false;
       if (saved?.file) this.show(saved.file, cx);
+      else if (this.opening && cwd) {
+        const r = resolvePath(this.opening, `${cwd}/.`, cwd), rel = r.path && relativeTo(r.path, cwd);
+        this.opening = null;
+        if (rel) this.show(rel, cx);
+      }
     } else this.reread(cx, changed);
     if (!cwd || this.loading) return;
     const context = this.context;

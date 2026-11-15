@@ -1,0 +1,31 @@
+# The release gate: tests, the security and mod-rules checks from docs/QUALITY.md,
+# a dependency audit, and a byte-for-byte rebuild of the Mermaid bundle.
+# What CI cannot check (herdr-app check, how it looks) is the local release step in QUALITY.md.
+name: gate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      # No install scripts: esbuild's platform binary arrives as an optional package.
+      - run: npm ci --ignore-scripts
+      - run: npm audit --audit-level=moderate
+      - run: npm test
+      - run: npm run gate
+      - name: The rebuild changed nothing
+        run: git diff --exit-code

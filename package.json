@@ -7,7 +7,9 @@
   "license": "Apache-2.0",
   "scripts": {
     "build:mermaid": "node scripts/build-mermaid.mjs",
-    "test": "node --test tests/"
+    "test": "node --test \"tests/*.test.js\"",
+    "gate": "node scripts/gate.mjs",
+    "ci": "npm test && npm run gate"
   },
   "devDependencies": {
     "beautiful-mermaid": "1.1.3",
