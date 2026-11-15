@@ -51,7 +51,7 @@ fixtures/          Markdown files and images used for testing   Phase 0
 tests/             node --test for the pure logic and renderer  Phase 1–2
 scripts/           install.sh; build-mermaid.mjs                Phase 1–2
 package.json       pinned build inputs for the Mermaid bundle   Phase 2
-RECIPE.md          the gallery brief                            Phase 4
+RECIPE.md          the gallery brief (draft)                    Phase 4
 preview.png        the gallery screenshot                       Phase 4
 vendor/            patched elkjs source (EPL-2.0), from the build Phase 2
 LICENSE, NOTICE    Apache-2.0; credits                          Phase 2

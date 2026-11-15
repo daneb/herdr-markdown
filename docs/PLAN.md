@@ -134,6 +134,12 @@ signed off; no open defect that loses or misreports file content.
 
 ## Phase 4: Package and publish
 
+Status 2026-11-15: step 1 drafted (`RECIPE.md`, from the real files); step 3
+done (`LICENSE`, `NOTICE`, `mods/files-md/THIRD-PARTY-NOTICES.md`); Dane ran
+`git init` and the first commit. `preview.png` taken from `fixtures/showcase.md` in
+the panel. To do: push and the `herdr-mod` topic; the fresh-install test. Gated on
+Phase 3's remaining items (checklist in both themes, security sign-off) and Q8.
+
 1. `RECIPE.md` in the order the app's guide requires: what you see, how it
    behaves, built from, watch out, done when. State the tested app version,
    the renderer's limits from the matrix, and the six diagram types.
