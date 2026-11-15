@@ -1,4 +1,4 @@
-# Files with Markdown, for Herdr
+# Live Markdown + Mermaid, for Herdr
 
 Read your agents' Markdown the way it was meant to look, right beside the
 terminal: headings, tables, task lists, **Mermaid diagrams** and **images**,
@@ -30,8 +30,8 @@ in Herdr's own file panel. It updates as the agent writes.
 
 You need the [Herdr app](https://herdr.dev) 0.1.15 or later, on macOS.
 
-**From Herdr's gallery (recommended).** Find **Files with Markdown
-(files-md)** in the [mod gallery](https://herdr.dev/gallery/?type=mods), copy
+**From Herdr's gallery (recommended).** Find **Live Markdown +
+Mermaid** in the [mod gallery](https://herdr.dev/gallery/?type=mods), copy
 its line, and give it to an agent running in Herdr. It's this:
 
 > Read ~/.config/herdr-app/AGENTS.md, then add this mod: https://github.com/daneb/herdr-markdown/tree/master
